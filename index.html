@@ -15,7 +15,7 @@
 
 <body>
   <header class="header">
-    <a href="index.html">
+    <a href="index.html" aria-label="Go to homepage">
       <svg class="logo" width="100" height="60" viewBox="0 0 690 414" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path class="logo-circle-color"
           d="M476.1 172.5C476.1 244.905 417.405 303.6 345 303.6C272.596 303.6 213.9 244.905 213.9 172.5C213.9 100.095 272.596 41.4 345 41.4C417.405 41.4 476.1 100.095 476.1 172.5Z"
@@ -134,6 +134,57 @@
 
   </header>
   <script src="./script.js" defer></script>
+  <main class="main">
+    <section class="main-menu">
+      <div class="main-video-container">
+        <video class="main-video" src="/video/2909914-uhd_3840_2024_24fps.mp4" autoplay loop muted playsinline></video>
+        <div class="title-container">
+          <h2 class="main-title"><span class="enjoy-title">Enjoy</span> premium coffee at our charming cafe</h2>
+          <p class="main-description">With its inviting atmosphere and delicious coffee options, the Coffee House
+            Resource
+            is a popular destination for coffee
+            lovers and those seeking a warm and inviting space to enjoy their favorite beverage.</p>
+          <button class="title-menu-button">Menu</button>
+
+        </div>
+      </div>
+
+    </section>
+    <section class="favorite-coffee">
+      <h2 class="favorite-coffee-title">Choose your <span class="favorite"> &nbsp; favorite &nbsp; </span>coffee</h3>
+        <div class="favorite-coffee-container">
+          <button class="favorite-card-button left-button" type="button" aria-label="button for previuosly card">
+            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 6.5H0.5M6.5 12.5L0.5 6.5L6.5 0.5" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="favorite-card">
+            <img class="favorite-card-image" src="./image/coffee-slider-1.png">
+            <div class="favorite-card-text-container">
+              <h3 class="favorite-card-title">S’mores Frappuccino</h3>
+              <p class="favorite-card-description">This new drink takes an espresso and mixes it with brown sugar and
+                cinnamon before being topped with oat milk.</p>
+
+              <span class="favorite-card-price">$5.50</span>
+            </div>
+          </div>
+          <button class="favorite-card-button right-button" type="button" aria-label="button for next card">
+            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.5 6.5H13M7 12.5L13 6.5L7 0.5" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+        <div class="selected-card">
+          <button class="selected-card-item" type="button" aria-label="elemnt which show card selected"></button>
+          <button class="selected-card-item"></button>
+          <button class="selected-card-item"></button>
+        </div>
+    </section>
+    <section class="about"></section>
+    <section class="mobile-app"></section>
+  </main>
 </body>
 
 </html>

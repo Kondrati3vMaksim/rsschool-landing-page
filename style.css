@@ -1,11 +1,15 @@
 :root {
   --page-background-color: #E1D4C9;
   --text-primary-color: #403F3D;
+  --overlay-color: #403F3D;
+  --text-accent-color: #B0907A;
   --border-primary: #C1B6AD;
   --theme-selected-color: #B0907A;
   --theme-hover-color: #665F55;
   --theme-icon-hover-color: #E1D4C9;
   --border-inverse: #665F55;
+  --text-inverse-color: #E1D4C9;
+  --container-background-color: #665F55;
 }
 
 [data-theme='dark'] {
@@ -14,7 +18,10 @@
   --theme-icon-hover-color: #E1D4C9;
   --theme-hover-color: #403F3D;
   --border-primary: #665F55;
-  ----border-inverse: #C1B6AD;
+  --border-inverse: #C1B6AD;
+  --text-inverse-color: #E1D4C9;
+  --container-background-color: #403F3D;
+  --overlay-color: #292826CC;
 }
 
 *,
@@ -25,12 +32,17 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Inter, sans-serif;
   background-color: var(--page-background-color);
   max-width: 1440px;
   margin-inline: auto;
   padding: 20px 40px;
+  color: var(--text-primary-color);
 }
 
 a {
@@ -125,12 +137,6 @@ li {
   width: 100%;
 }
 
-.link-menu--icon {
-  align-self: start;
-  width: 20px;
-  height: 20px;
-
-}
 
 .theme-items {
   width: 36px;
@@ -149,6 +155,7 @@ li {
   gap: 8px;
   padding: 3px;
   border-radius: 100px;
+  cursor: pointer;
 }
 
 
@@ -193,6 +200,7 @@ li {
 }
 
 .burger-menu {
+  cursor: pointer;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -208,6 +216,175 @@ li {
 .burger-menu-item {
   width: 16px;
   border-top: 1.5px solid var(--text-primary-color);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  padding: 20px 40px;
+}
+
+.main-menu {
+  position: relative;
+}
+
+.main-video-container {}
+
+.main-video {
+  max-width: 100%;
+}
+
+.title-container {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  bottom: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 530px;
+  gap: 40px;
+}
+
+.main-title {
+  font-weight: 600;
+  font-size: 72px;
+  color: var(--text-inverse-color);
+
+}
+
+.enjoy-title {
+  font-weight: 600;
+  font-style: italic;
+  line-height: 105%;
+  font-size: 72px;
+  color: var(--theme-selected-color);
+}
+
+.main-description {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text-inverse-color);
+  line-height: 150%;
+}
+
+.title-menu-button {
+  padding: 20px 78px;
+  border-radius: 100px;
+  background-color: var(--page-background-color);
+  align-self: start;
+  border: none;
+  cursor: pointer;
+  line-height: 150%;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-primary-color);
+}
+
+.favorite-coffee {
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+}
+
+.favorite-coffee-title {
+  display: flex;
+  justify-content: center;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+.favorite {
+  color: var(--text-accent-color);
+  font-style: italic;
+}
+
+.favorite-coffee-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.favorite-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.favorite-card-image {
+  align-self: center;
+  max-width: 480px;
+}
+
+.favorite-card-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 480px;
+}
+
+.favorite-card-title {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+.favorite-card-description {
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+
+}
+
+.favorite-card-price {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+.favorite-card-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  color: var(--text-primary-color);
+  border: 1px solid var(--border-inverse);
+  background-color: inherit;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.favorite-card-button:hover {
+  color: var(--text-inverse-color);
+  background-color: var(--container-background-color);
+}
+
+.selected-card {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.selected-card-item {
+  width: 40px;
+  height: 4px;
+  border: 1px solid var(--border-primary);
+  background-color: var(--border-primary);
+  border-radius: 100px;
+}
+
+.selected-card-item:active {
+  border-color: var(--border-inverse);
+  background-color: var(--border-inverse);
 }
 
 @media (max-width: 768px) {
