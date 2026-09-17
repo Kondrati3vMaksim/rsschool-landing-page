@@ -1,18 +1,20 @@
 :root {
   --page-background-color: #E1D4C9;
-  --text-primaru-color: #403F3D;
+  --text-primary-color: #403F3D;
   --border-primary: #C1B6AD;
   --theme-selected-color: #B0907A;
   --theme-hover-color: #665F55;
-  --theme-icon-hover-color: #E1D4C9
+  --theme-icon-hover-color: #E1D4C9;
+  --border-inverse: #665F55;
 }
 
 [data-theme='dark'] {
   --page-background-color: #292826;
-  --text-primaru-color: #E1D4C9;
+  --text-primary-color: #E1D4C9;
   --theme-icon-hover-color: #E1D4C9;
   --theme-hover-color: #403F3D;
-  --border-primary: #665F55
+  --border-primary: #665F55;
+  ----border-inverse: #C1B6AD;
 }
 
 *,
@@ -33,7 +35,7 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--text-primaru-color);
+  color: var(--text-primary-color);
 }
 
 li {
@@ -43,6 +45,14 @@ li {
 .logo {
   width: 100px;
   height: 60px;
+}
+
+.logo-text-color {
+  color: var(--text-primary-color);
+}
+
+.logo-circle-color {
+  color: var(--theme-selected-color);
 }
 
 .header {
@@ -71,7 +81,7 @@ li {
 .header-menu-item a::after {
   position: absolute;
   content: '';
-  background-color: var(--text-primaru-color);
+  background-color: var(--text-primary-color);
   width: 0;
   height: 2px;
   bottom: -5px;
@@ -106,7 +116,7 @@ li {
   bottom: -4px;
   height: 2px;
   left: 50%;
-  background-color: var(--text-primaru-color);
+  background-color: var(--text-primary-color);
   transition: width 0.3s ease;
   transform: translateX(-50%);
 }
@@ -119,6 +129,7 @@ li {
   align-self: start;
   width: 20px;
   height: 20px;
+
 }
 
 .theme-items {
@@ -153,10 +164,10 @@ li {
 
 
 .theme-dark {
-  color: var(--text-primaru-color);
+  color: var(--text-primary-color);
 }
 
-.theme-dark:hover {
+.menu-input:not(:checked)+.menu-theme-selected .theme-dark:hover {
   background-color:
     var(--theme-hover-color);
   color: var(--theme-icon-hover-color);
@@ -179,4 +190,51 @@ li {
 
 .menu-input:focus-visible+.menu-theme-selected {
   outline: 1px solid currentColor;
+}
+
+.burger-menu {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid var(--border-inverse);
+  width: 44px;
+  height: 44px;
+  background-color: transparent;
+  border-radius: 100px;
+  gap: 8px;
+  display: none;
+}
+
+.burger-menu-item {
+  width: 16px;
+  border-top: 1.5px solid var(--text-primary-color);
+}
+
+@media (max-width: 768px) {
+  .burger-menu {
+    display: flex;
+  }
+
+  .header-menu {
+    display: none;
+  }
+
+  .menu-and-icon {
+    display: none;
+  }
+
+  .theme-items {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 450px) {
+  body {
+    padding: 20px 16px;
+  }
+
+  .link-to-menu {
+    gap: 12px;
+  }
 }
