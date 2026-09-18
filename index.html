@@ -80,7 +80,7 @@
     </a>
     <nav class="header-navigation">
       <ul class="header-menu">
-        <li class="header-menu-item"><a href="#favorite">Favorite coffee</a></li>
+        <li class="header-menu-item"><a href="#favorite-coffee">Favorite coffee</a></li>
         <li class="header-menu-item"><a href="#about">About</a></li>
         <li class="header-menu-item"><a href="#mobile-app">Mobile app</a></li>
         <li class="header-menu-item"><a href="#contact">Contact us</a></li>
@@ -133,58 +133,228 @@
     </div>
 
   </header>
-  <script src="./script.js" defer></script>
+
   <main class="main">
-    <section class="main-menu">
-      <div class="main-video-container">
-        <video class="main-video" src="/video/2909914-uhd_3840_2024_24fps.mp4" autoplay loop muted playsinline></video>
-        <div class="title-container">
-          <h2 class="main-title"><span class="enjoy-title">Enjoy</span> premium coffee at our charming cafe</h2>
-          <p class="main-description">With its inviting atmosphere and delicious coffee options, the Coffee House
+    <section class="hero">
+      <div class="hero-video-container">
+        <video class="hero-video" src="./video/2909914-uhd_3840_2024_24fps.mp4" autoplay loop muted playsinline></video>
+        <div class="hero-title-container">
+          <h1 class="hero-title"><span class="hero-enjoy-title">Enjoy</span> premium coffee at our charming cafe</h1>
+          <p class="hero-description">With its inviting atmosphere and delicious coffee options, the Coffee House
             Resource
             is a popular destination for coffee
             lovers and those seeking a warm and inviting space to enjoy their favorite beverage.</p>
-          <button class="title-menu-button">Menu</button>
+          <a class="hero-menu-link" href="catalog.html">Menu</a>
 
         </div>
       </div>
 
     </section>
-    <section class="favorite-coffee">
-      <h2 class="favorite-coffee-title">Choose your <span class="favorite"> &nbsp; favorite &nbsp; </span>coffee</h3>
-        <div class="favorite-coffee-container">
-          <button class="favorite-card-button left-button" type="button" aria-label="button for previuosly card">
-            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M13 6.5H0.5M6.5 12.5L0.5 6.5L6.5 0.5" stroke="currentColor" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </button>
-          <div class="favorite-card">
-            <img class="favorite-card-image" src="./image/coffee-slider-1.png">
+    <section class="favorite-coffee" id="favorite-coffee">
+      <h2 class="favorite-coffee-title">Choose your <span class="favorite"> favorite </span> coffee</h2>
+      <div class="favorite-coffee-container">
+        <button class="favorite-card-button left-button" type="button" aria-label="button for previuosly card">
+          <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 6.5H0.5M6.5 12.5L0.5 6.5L6.5 0.5" stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="favorite-card">
+          <div class="favorite-card-product favorite-card-product-current">
+            <img alt="slide of a cup cofee" class="favorite-card-image" src="./image/coffee-slider-1.png">
             <div class="favorite-card-text-container">
               <h3 class="favorite-card-title">S’mores Frappuccino</h3>
               <p class="favorite-card-description">This new drink takes an espresso and mixes it with brown sugar and
                 cinnamon before being topped with oat milk.</p>
-
               <span class="favorite-card-price">$5.50</span>
             </div>
           </div>
-          <button class="favorite-card-button right-button" type="button" aria-label="button for next card">
-            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0.5 6.5H13M7 12.5L13 6.5L7 0.5" stroke="currentColor" stroke-linecap="round"
-                stroke-linejoin="round" />
+          <div class="favorite-card-product">
+            <img alt="slide of a cup cofee" class="favorite-card-image" src="./image/coffee-slider-2.png">
+            <div class="favorite-card-text-container">
+              <h3 class="favorite-card-title">Caramel Macchiato</h3>
+              <p class="favorite-card-description">Fragrant and unique classic espresso with rich caramel-peanut syrup,
+                with cream under whipped thick foam.</p>
+              <span class="favorite-card-price">$5.00</span>
+            </div>
+          </div>
+          <div class="favorite-card-product">
+            <img alt="slide of a cup cofee" class="favorite-card-image" src="./image/coffee-slider-3.png">
+            <div class="favorite-card-text-container">
+              <h3 class="favorite-card-title">Ice coffee</h3>
+              <p class="favorite-card-description">A popular summer drink that tones and invigorates. Prepared from
+                coffee, milk and ice.</p>
+              <span class="favorite-card-price">$4.50</span>
+            </div>
+          </div>
+        </div>
+        <button class="favorite-card-button right-button" type="button" aria-label="button for next card">
+          <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.5 6.5H13M7 12.5L13 6.5L7 0.5" stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+      <div class="selected-card">
+        <span class="selected-card-item selected-card-item-active"></span>
+        <span class="selected-card-item"></span>
+        <span class="selected-card-item"></span>
+      </div>
+    </section>
+    <section class="about" id="about">
+      <h2 class="about-title">Resource is <span class="about-title-text">&nbsp;the perfect and cozy place&nbsp;</span>
+        where you can enjoy a
+        variety of hot beverages,
+        relax, catch up with friends, or get some work done.</h2>
+      <div class="about-container">
+        <img class="about-photo about-photo-item1" src="./image/about-1.jpg" alt="photo a eoman who is drinking coffee">
+        <img class="about-photo about-photo-item2" src="./image/about-2.jpg" alt="photo a cup of coffee">
+        <img class="about-photo about-photo-item3" src="./image/about-3.jpg" alt="photo the man who work from cafe">
+        <img class="about-photo about-photo-item4" src="./image/about-4.jpg" alt="men and woomen are drinkin cofee">
+      </div>
+    </section>
+    <section class="mobile-app" id="mobile-app">
+      <div class="mobile-app-text">
+        <h2 class="mobile-app-title"><span class="mobile-app-text-download">Download</span> our app
+          to start ordering</h2>
+        <p class="mobile-app-description">Download the Resource app today and experience the comfort of ordering your
+          favorite coffee from wherever you are</p>
+        <div class="mobile-app-button-container">
+          <button class="mobile-app-button"><svg width=" 27" height="32" viewBox="0 0 27 32" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M22.0578 16.8306C22.021 12.8323 25.4156 10.8871 25.5708 10.7966C23.6483 8.06361 20.6684 7.69021 19.6213 7.66043C17.1185 7.40364 14.6909 9.12057 13.4159 9.12057C12.1156 9.12057 10.1523 7.68524 8.03638 7.72742C5.31352 7.76836 2.76624 9.30541 1.36919 11.6922C-1.51399 16.5589 0.636305 23.7107 3.39861 27.6446C4.7804 29.5711 6.39503 31.7223 8.50843 31.6466C10.576 31.5635 11.3483 30.3614 13.8435 30.3614C16.3157 30.3614 17.0409 31.6466 19.1963 31.5982C21.4153 31.5635 22.8124 29.6629 24.1458 27.719C25.7426 25.5108 26.3839 23.3361 26.4093 23.2245C26.3572 23.2071 22.0998 21.6229 22.0578 16.8306Z"
+                fill="currentColor" />
+              <path
+                d="M17.9863 5.07263C19.0983 3.71671 19.8592 1.872 19.648 0C18.0384 0.0694711 16.0256 1.08549 14.8664 2.41164C13.8409 3.58025 12.9248 5.49566 13.1615 7.29695C14.9695 7.42845 16.8259 6.40747 17.9863 5.07263Z"
+                fill="currentColor" />
             </svg>
+            <div class="mobile-app-button-text-container">
+
+              <span class="mobile-app-button-text-low">Available on the</span>
+              <span class="mobile-app-button-text">App Store</span>
+            </div>
+          </button>
+          <button class="mobile-app-button"><svg width=" 31" height="33" viewBox="0 0 31 33" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M0.572202 1.40292C0.209755 1.77285 0 2.34879 0 3.09466V29.6994C0 30.4452 0.209755 31.0212 0.572202 31.3911L0.661658 31.4723L15.9523 16.5699V16.2181L0.661658 1.31571L0.572202 1.40292Z"
+                fill="currentColor" />
+              <path
+                d="M22.894 21.5399L17.8027 16.57V16.2181L22.9001 11.2481L23.0143 11.3128L29.0509 14.6617C30.7737 15.6121 30.7737 17.176 29.0509 18.1324L23.0143 21.4753L22.894 21.5399V21.5399Z"
+                fill="currentColor" />
+              <path
+                d="M22.0897 22.4007L16.8781 17.3195L1.49805 32.3166C2.07025 32.903 3.00336 32.9737 4.06448 32.3872L22.0897 22.4007"
+                fill="currentColor" />
+              <path
+                d="M22.0897 10.3875L4.06448 0.400992C3.00336 -0.179462 2.07025 -0.108787 1.49805 0.477683L16.8781 15.4688L22.0897 10.3875Z"
+                fill="currentColor" />
+            </svg>
+            <div class="mobile-app-button-text-container">
+              <span class="mobile-app-button-text-low">Available on</span>
+              <span class="mobile-app-button-text">Google Play</span>
+            </div>
           </button>
         </div>
-        <div class="selected-card">
-          <button class="selected-card-item" type="button" aria-label="elemnt which show card selected"></button>
-          <button class="selected-card-item"></button>
-          <button class="selected-card-item"></button>
-        </div>
+      </div>
+      <div class="mobile-app-image">
+        <img class="mobile-app-image-item" src="./image/mobile-screens.png" alt="photo for phone with app">
+      </div>
     </section>
-    <section class="about"></section>
-    <section class="mobile-app"></section>
   </main>
+  <footer class="footer" id="contact">
+    <div class="footer-icon-and-title-container">
+      <h2 class="footer-title">Sip, Savor, Smile. <span class="footer-title-italic">It’s coffee time!</span></h2>
+      <nav class="footer-nav">
+        <ul class="footer-nav-list">
+          <li class="footer-nav-list-item">
+            <a class="footer-link">
+              <svg class="footer-social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M23 3.01006C23 3.01006 20.9821 4.20217 19.86 4.54006C19.2577 3.84757 18.4573 3.35675 17.567 3.13398C16.6767 2.91122 15.7395 2.96725 14.8821 3.29451C14.0247 3.62177 13.2884 4.20446 12.773 4.96377C12.2575 5.72309 11.9877 6.62239 12 7.54006V8.54006C10.2426 8.58562 8.50127 8.19587 6.93101 7.4055C5.36074 6.61513 4.01032 5.44869 3 4.01006C3 4.01006 -1 13.0101 8 17.0101C5.94053 18.408 3.48716 19.109 1 19.0101C10 24.0101 21 19.0101 21 7.51006C20.9991 7.23151 20.9723 6.95365 20.92 6.68006C21.9406 5.67355 23 3.01006 23 3.01006Z"
+                  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+
+
+            </a>
+          </li>
+          <li class="footer-nav-list-item">
+            <a class="footer-link">
+              <svg class="footer-social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
+                  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z"
+                  stroke="currentColor" />
+                <path d="M17.5 6.51L17.51 6.49889" stroke="#E1D4C9" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+
+
+
+            </a>
+          </li>
+          <li class="footer-nav-list-item">
+            <a class="footer-link">
+              <svg class="footer-social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M17 2H14C12.6739 2 11.4021 2.52678 10.4645 3.46447C9.52678 4.40215 9 5.67392 9 7V10H6V14H9V22H13V14H16L17 10H13V7C13 6.73478 13.1054 6.48043 13.2929 6.29289C13.4804 6.10536 13.7348 6 14 6H17V2Z"
+                  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-contacts-container">
+      <h3 class="footer-contact-title">Contact us</h3>
+      <div class="footer-contacts-info">
+        <div class="footer-contacts-info-item">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M16.6663 8.33329C16.6663 12.0152 9.99967 18.3333 9.99967 18.3333C9.99967 18.3333 3.33301 12.0152 3.33301 8.33329C3.33301 4.65139 6.31778 1.66663 9.99967 1.66663C13.6816 1.66663 16.6663 4.65139 16.6663 8.33329Z"
+              stroke="currentColor" stroke-width="1.5" />
+            <path
+              d="M10.0003 9.16667C10.4606 9.16667 10.8337 8.79357 10.8337 8.33333C10.8337 7.8731 10.4606 7.5 10.0003 7.5C9.54009 7.5 9.16699 7.8731 9.16699 8.33333C9.16699 8.79357 9.54009 9.16667 10.0003 9.16667Z"
+              fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <span>8558 Green Rd., LA</span>
+        </div>
+        <div class="footer-contacts-info-item">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M13.9734 11.335L10.5415 12C8.22345 10.8365 6.79154 9.5 5.95821 7.41667L6.59983 3.97491L5.38697 0.75L2.60446 0.75C1.47691 0.75 0.589659 1.68295 0.776079 2.79498C1.17388 5.16791 2.24731 9.12244 5.12487 12C8.14838 15.0235 12.4411 16.4151 15.0128 17.0121C16.174 17.2817 17.2082 16.3742 17.2082 15.1821L17.2082 12.5677L13.9734 11.335Z"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <a href="#">+1 (603) 555-0123</a>
+        </div>
+
+        <div class="footer-contacts-info-item">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_217_1736)">
+              <path d="M10 5L10 10L15 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path
+                d="M10.0003 18.3333C14.6027 18.3333 18.3337 14.6023 18.3337 9.99996C18.3337 5.39759 14.6027 1.66663 10.0003 1.66663C5.39795 1.66663 1.66699 5.39759 1.66699 9.99996C1.66699 14.6023 5.39795 18.3333 10.0003 18.3333Z"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </g>
+            <defs>
+              <clipPath id="clip0_217_1736">
+                <rect width="20" height="20" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+          <span>Mon–Sat: 9:00–23:00</span>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+  <script src="./script.js" defer></script>
 </body>
 
 </html>

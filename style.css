@@ -1,7 +1,7 @@
 :root {
   --page-background-color: #E1D4C9;
   --text-primary-color: #403F3D;
-  --overlay-color: #403F3D;
+  --overlay-color: #403F3DCC;
   --text-accent-color: #B0907A;
   --border-primary: #C1B6AD;
   --theme-selected-color: #B0907A;
@@ -47,7 +47,9 @@ body {
 
 a {
   text-decoration: none;
+  font-family: inherit;
   color: var(--text-primary-color);
+  cursor: pointer;
 }
 
 li {
@@ -218,59 +220,72 @@ li {
   border-top: 1.5px solid var(--text-primary-color);
 }
 
-.main {
+
+main {
   display: flex;
   flex-direction: column;
   gap: 100px;
-  padding: 20px 40px;
 }
 
-.main-menu {
-  position: relative;
-}
-
-.main-video-container {}
-
-.main-video {
-  max-width: 100%;
-}
-
-.title-container {
-  position: absolute;
-  top: 10%;
-  left: 10%;
-  bottom: 10%;
+.hero {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding-top: 20px;
+}
+
+
+.hero-video-container {
+  height: 644px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 40px;
+}
+
+.hero-video-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--overlay-color);
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+.hero-title-container {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  display: flex;
+  flex-direction: column;
   max-width: 530px;
   gap: 40px;
 }
 
-.main-title {
+.hero-title {
   font-weight: 600;
   font-size: 72px;
   color: var(--text-inverse-color);
-
-}
-
-.enjoy-title {
-  font-weight: 600;
-  font-style: italic;
   line-height: 105%;
-  font-size: 72px;
-  color: var(--theme-selected-color);
 }
 
-.main-description {
+.hero-enjoy-title {
+  font-style: italic;
+  color: var(--text-accent-color);
+}
+
+.hero-description {
   font-weight: 400;
   font-size: 16px;
   color: var(--text-inverse-color);
   line-height: 150%;
 }
 
-.title-menu-button {
+.hero-menu-link {
   padding: 20px 78px;
   border-radius: 100px;
   background-color: var(--page-background-color);
@@ -290,8 +305,7 @@ li {
 }
 
 .favorite-coffee-title {
-  display: flex;
-  justify-content: center;
+  text-align: center;
   font-size: 60px;
   font-weight: 600;
   line-height: 125%;
@@ -311,8 +325,17 @@ li {
 
 .favorite-card {
   display: flex;
+
+}
+
+.favorite-card-product {
+  display: none;
   flex-direction: column;
   gap: 20px;
+}
+
+.favorite-card-product-current {
+  display: flex;
 }
 
 .favorite-card-image {
@@ -382,9 +405,221 @@ li {
   border-radius: 100px;
 }
 
-.selected-card-item:active {
+.selected-card-item-active {
   border-color: var(--border-inverse);
   background-color: var(--border-inverse);
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-title {
+  font-size: 60px;
+  line-height: 125%;
+  font-weight: 600;
+}
+
+.about-title-text {
+  font-style: italic;
+  color: var(--text-accent-color);
+}
+
+.about-container {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 430px 120px 430px;
+}
+
+.about-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.about-photo-item1 {
+
+  grid-row: 1 / 3;
+  grid-column: 1 / 2;
+}
+
+.about-photo-item2 {
+
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+}
+
+.about-photo-item3 {
+
+  grid-row: 3 / 4;
+  grid-column: 1 / 2;
+}
+
+.about-photo-item4 {
+  grid-row: 2/ 4;
+  grid-column: 2 / 3;
+}
+
+.mobile-app {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mobile-app-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  max-width: 630px;
+}
+
+.mobile-app-title {
+  font-size: 60px;
+  line-height: 125%;
+  font-weight: 600;
+}
+
+.mobile-app-text-download {
+  font-style: italic;
+  color: var(--text-accent-color);
+}
+
+.mobile-app-description {
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.mobile-app-image-item {
+  width: 100%;
+  max-width: 620px;
+}
+
+.mobile-app-button-container {
+  display: flex;
+  gap: 20px;
+}
+
+.mobile-app-button {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  gap: 8px;
+  background-color: transparent;
+  border-radius: 100px;
+  border: 1px solid var(--border-inverse);
+  font-family: inherit;
+  cursor: pointer;
+  color: var(--text-primary-color);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.mobile-app-button-text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-app-button-text {
+
+  align-self: start;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 600;
+}
+
+.mobile-app-button-text-low {
+  font-size: 10px;
+  line-height: 140%;
+}
+
+.mobile-app-button:hover {
+  background-color: var(--container-background-color);
+  color: var(--text-inverse-color);
+  border-color: transparent;
+}
+
+
+
+.footer {
+  margin-top: 100px;
+  background-color: var(--container-background-color);
+  border-radius: 40px;
+
+  display: flex;
+  justify-content: space-between;
+  padding: 100px;
+}
+
+.footer-icon-and-title-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 530px;
+}
+
+.footer-title {
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+  color: var(--text-inverse-color);
+}
+
+.footer-title-italic {
+  font-style: italic;
+  color: var(--text-accent-color);
+}
+
+.footer-nav-list {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-social-icon {
+  color: var(--text-inverse-color);
+}
+
+
+
+.footer-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--border-primary);
+  padding: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.footer-link:hover {
+  border-color: none;
+  background-color: var(--page-background-color);
+}
+
+.footer-contacts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+}
+
+.footer-contact-title {
+  font-size: 24px;
+  line-height: 125%;
+  font-weight: 600;
+  color: var(--text-inverse-color);
+}
+
+.footer-contacts-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  color: var(--text-inverse-color);
 }
 
 @media (max-width: 768px) {

@@ -19,36 +19,4 @@ themeControl.addEventListener("change", () => {
   }
 });
 
-const tasks = [
-  { title: "HTML", status: "done" },
-  { title: "JavaScript", status: "todo" },
-  { title: "CSS", status: "done" },
-  { title: "React", status: "todo" },
-  { title: "TypeScript", status: "todo" },
-];
-function getStatusSummary(tasks) {
-  return tasks.reduce(
-    (obj, task) => {
-      if (task.status === "todo") {
-        obj.todo.count += 1;
-        obj.todo.titles.push(task.title);
-      }
-      if (task.status === "done") {
-        obj.done.count += 1;
-        obj.done.titles.push(task.title);
-      }
-      return obj;
-    },
-    {
-      todo: {
-        count: 0,
-        titles: [],
-      },
-      done: {
-        count: 0,
-        titles: [],
-      },
-    },
-  );
-}
-console.log(getStatusSummary(tasks));
+
