@@ -287,17 +287,39 @@ main {
 }
 
 .hero-menu-link {
-  padding: 20px 78px;
+  padding-block: 20px;
   border-radius: 100px;
   background-color: var(--page-background-color);
-  align-self: start;
   border: none;
   cursor: pointer;
   line-height: 150%;
   font-weight: 600;
   font-size: 16px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: 200px;
+  gap: 8px;
   color: var(--text-primary-color);
+
 }
+
+.hero-menu-link-label {
+  grid-column: 2;
+}
+
+.hero-menu-link--icon {
+  opacity: 0;
+  grid-column: 3;
+  justify-self: start;
+  transition: opacity 0.4s ease
+}
+
+.hero-menu-link:focus-visible .hero-menu-link--icon,
+.hero-menu-link:hover .hero-menu-link--icon {
+  opacity: 1;
+}
+
 
 .favorite-coffee {
   display: flex;
@@ -387,6 +409,7 @@ main {
 }
 
 .favorite-card-button:hover {
+  border-color: transparent;
   color: var(--text-inverse-color);
   background-color: var(--container-background-color);
 }
@@ -669,6 +692,10 @@ main {
     left: 60px;
   }
 
+  .hero-menu-link--icon {
+    opacity: 1;
+  }
+
   .about-container {
     grid-template-rows: 590px 590px;
     grid-template-columns: 1fr;
@@ -729,6 +756,10 @@ main {
   .hero-title-container {
     left: 16px;
     top: 60px;
+  }
+
+  .hero-menu-link--icon {
+    opacity: 1;
   }
 
   .favorite-card-image {
