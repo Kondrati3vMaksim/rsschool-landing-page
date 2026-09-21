@@ -10,6 +10,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
     rel="stylesheet">
+  <link rel="icon" href="./image/favicon/favicon.ico" type="image/x-icon">
   <title>Coffee House</title>
 </head>
 
@@ -137,7 +138,8 @@
   <main class="main">
     <section class="hero">
       <div class="hero-video-container">
-        <video poster="./video/img-hero.jpg" class="hero-video" src="./video/hero-1920.mp4" autoplay loop muted playsinline></video>
+        <video poster="./video/img-hero.jpg" class="hero-video" src="./video/hero-1920.mp4" autoplay loop muted
+          playsinline></video>
         <div class="hero-title-container">
           <h1 class="hero-title"><span class="hero-enjoy-title">Enjoy</span> premium coffee at our charming cafe</h1>
           <p class="hero-description">With its inviting atmosphere and delicious coffee options, the Coffee House
@@ -174,7 +176,7 @@
     <section class="favorite-coffee" id="favorite-coffee">
       <h2 class="favorite-coffee-title">Choose your <span class="favorite"> favorite </span> coffee</h2>
       <div class="favorite-coffee-container">
-        <button class="favorite-card-button left-button" type="button" aria-label="previuosly image">
+        <button class="favorite-card-button left-button" type="button" aria-label="previous card">
           <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M13 6.5H0.5M6.5 12.5L0.5 6.5L6.5 0.5" stroke="currentColor" stroke-linecap="round"
               stroke-linejoin="round" />
@@ -209,7 +211,7 @@
             </div>
           </div>
         </div>
-        <button class="favorite-card-button right-button" type="button" aria-label="next image">
+        <button class="favorite-card-button right-button" type="button" aria-label="next card">
           <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0.5 6.5H13M7 12.5L13 6.5L7 0.5" stroke="currentColor" stroke-linecap="round"
               stroke-linejoin="round" />
@@ -223,15 +225,23 @@
       </div>
     </section>
     <section class="about" id="about">
-      <h2 class="about-title">Resource is <span class="about-title-text">&nbsp;the perfect and cozy place&nbsp;</span>
+      <h2 class="about-title">Resource is <span class="about-title-text">the perfect and cozy place</span>
         where you can enjoy a
         variety of hot beverages,
         relax, catch up with friends, or get some work done.</h2>
       <div class="about-container">
-        <img class="about-photo about-photo-item1" src="./image/about-1.jpg" alt="photo a eoman who is drinking coffee">
-        <img class="about-photo about-photo-item2" src="./image/about-2.jpg" alt="photo a cup of coffee">
-        <img class="about-photo about-photo-item3" src="./image/about-3.jpg" alt="photo the man who work from cafe">
-        <img class="about-photo about-photo-item4" src="./image/about-4.jpg" alt="men and woomen are drinkin cofee">
+        <div class="wrapper about-photo-item1">
+          <img class="about-photo" src="./image/about-1.jpg" alt="woman is drinking coffee">
+        </div>
+        <div class="wrapper about-photo-item2">
+          <img class="about-photo" src="./image/about-2.jpg" alt=" a cup of coffee">
+        </div>
+        <div class="wrapper about-photo-item3">
+          <img class="about-photo" src="./image/about-3.jpg" alt=" person working from cafe">
+        </div>
+        <div class="wrapper  about-photo-item4">
+          <img class="about-photo" src="./image/about-4.jpg" alt="men and woomen are drinkin cofee">
+        </div>
       </div>
     </section>
     <section class="mobile-app" id="mobile-app">
@@ -241,8 +251,8 @@
         <p class="mobile-app-description">Download the Resource app today and experience the comfort of ordering your
           favorite coffee from wherever you are</p>
         <div class="mobile-app-button-container">
-          <button class="mobile-app-button"><svg width=" 27" height="32" viewBox="0 0 27 32" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
+          <a href="https://apps.apple.com/us/iphone/apps" class="mobile-app-link"><svg width=" 27" height="32"
+              viewBox="0 0 27 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M22.0578 16.8306C22.021 12.8323 25.4156 10.8871 25.5708 10.7966C23.6483 8.06361 20.6684 7.69021 19.6213 7.66043C17.1185 7.40364 14.6909 9.12057 13.4159 9.12057C12.1156 9.12057 10.1523 7.68524 8.03638 7.72742C5.31352 7.76836 2.76624 9.30541 1.36919 11.6922C-1.51399 16.5589 0.636305 23.7107 3.39861 27.6446C4.7804 29.5711 6.39503 31.7223 8.50843 31.6466C10.576 31.5635 11.3483 30.3614 13.8435 30.3614C16.3157 30.3614 17.0409 31.6466 19.1963 31.5982C21.4153 31.5635 22.8124 29.6629 24.1458 27.719C25.7426 25.5108 26.3839 23.3361 26.4093 23.2245C26.3572 23.2071 22.0998 21.6229 22.0578 16.8306Z"
                 fill="currentColor" />
@@ -255,9 +265,9 @@
               <span class="mobile-app-button-text-low">Available on the</span>
               <span class="mobile-app-button-text">App Store</span>
             </div>
-          </button>
-          <button class="mobile-app-button"><svg width=" 31" height="33" viewBox="0 0 31 33" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
+          </a>
+          <a href="https://play.google.com/store/apps?hl=ru" class="mobile-app-link"><svg width=" 31" height="33"
+              viewBox="0 0 31 33" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M0.572202 1.40292C0.209755 1.77285 0 2.34879 0 3.09466V29.6994C0 30.4452 0.209755 31.0212 0.572202 31.3911L0.661658 31.4723L15.9523 16.5699V16.2181L0.661658 1.31571L0.572202 1.40292Z"
                 fill="currentColor" />
@@ -275,11 +285,11 @@
               <span class="mobile-app-button-text-low">Available on</span>
               <span class="mobile-app-button-text">Google Play</span>
             </div>
-          </button>
+          </a>
         </div>
       </div>
       <div class="mobile-app-image">
-        <img class="mobile-app-image-item" src="./image/mobile-screens.png" alt="photo for phone with app">
+        <img class="mobile-app-image-item" src="./image/mobile-screens.png" alt="">
       </div>
     </section>
   </main>
@@ -289,8 +299,8 @@
       <nav class="footer-nav">
         <ul class="footer-nav-list">
           <li class="footer-nav-list-item">
-            <a class="footer-link" href="https://x.com/" aria-label="icon link to x.com">
-              <svg class="footer-social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            <a class="footer-link" href="https://x.com/" aria-label="x.com">
+              <svg aria-hidden="true" class="footer-social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M23 3.01006C23 3.01006 20.9821 4.20217 19.86 4.54006C19.2577 3.84757 18.4573 3.35675 17.567 3.13398C16.6767 2.91122 15.7395 2.96725 14.8821 3.29451C14.0247 3.62177 13.2884 4.20446 12.773 4.96377C12.2575 5.72309 11.9877 6.62239 12 7.54006V8.54006C10.2426 8.58562 8.50127 8.19587 6.93101 7.4055C5.36074 6.61513 4.01032 5.44869 3 4.01006C3 4.01006 -1 13.0101 8 17.0101C5.94053 18.408 3.48716 19.109 1 19.0101C10 24.0101 21 19.0101 21 7.51006C20.9991 7.23151 20.9723 6.95365 20.92 6.68006C21.9406 5.67355 23 3.01006 23 3.01006Z"
@@ -301,8 +311,8 @@
             </a>
           </li>
           <li class="footer-nav-list-item">
-            <a class="footer-link" href="https://www.instagram.com/" aria-label="icon link to instagram">
-              <svg class="footer-social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            <a class="footer-link" href="https://www.instagram.com/" aria-label="instagram">
+              <svg aria-hidden="true" class="footer-social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"
@@ -319,8 +329,8 @@
             </a>
           </li>
           <li class="footer-nav-list-item">
-            <a class="footer-link" href="https://www.facebook.com/?sk=lf" aria-label="icon link to facebook">
-              <svg class="footer-social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            <a class="footer-link" href="https://www.facebook.com/?sk=lf" aria-label="facebook">
+              <svg aria-hidden="true" class="footer-social-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M17 2H14C12.6739 2 11.4021 2.52678 10.4645 3.46447C9.52678 4.40215 9 5.67392 9 7V10H6V14H9V22H13V14H16L17 10H13V7C13 6.73478 13.1054 6.48043 13.2929 6.29289C13.4804 6.10536 13.7348 6 14 6H17V2Z"
@@ -335,7 +345,8 @@
       <h3 class="footer-contact-title">Contact us</h3>
       <div class="footer-contacts-info">
         <div class="footer-contacts-info-item">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
             <path
               d="M16.6663 8.33329C16.6663 12.0152 9.99967 18.3333 9.99967 18.3333C9.99967 18.3333 3.33301 12.0152 3.33301 8.33329C3.33301 4.65139 6.31778 1.66663 9.99967 1.66663C13.6816 1.66663 16.6663 4.65139 16.6663 8.33329Z"
               stroke="currentColor" stroke-width="1.5" />
@@ -345,10 +356,12 @@
               stroke-linejoin="round" />
           </svg>
           <a class="footer-contact-link"
-            href="https://yandex.by/maps/geo/2228082244/?ll=8.458315%2C50.084489&z=7.97">8558 Green Rd., LA</a>
+            href="https://yandex.by/maps/200/los-angeles/geo/green_vista_drive/5872755497/?ll=-118.482666%2C34.133256&z=10.86">8558
+            Green Rd., LA</a>
         </div>
         <div class="footer-contacts-info-item">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
             <path
               d="M13.9734 11.335L10.5415 12C8.22345 10.8365 6.79154 9.5 5.95821 7.41667L6.59983 3.97491L5.38697 0.75L2.60446 0.75C1.47691 0.75 0.589659 1.68295 0.776079 2.79498C1.17388 5.16791 2.24731 9.12244 5.12487 12C8.14838 15.0235 12.4411 16.4151 15.0128 17.0121C16.174 17.2817 17.2082 16.3742 17.2082 15.1821L17.2082 12.5677L13.9734 11.335Z"
               stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -357,7 +370,7 @@
         </div>
 
         <div class="footer-contacts-info-item">
-          <svg class="tic-tac-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
+          <svg aria-hidden="true" class="tic-tac-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_217_1736)">
               <path d="M10 5L10 10L15 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
