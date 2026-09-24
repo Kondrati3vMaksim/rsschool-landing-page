@@ -404,6 +404,7 @@ main {
   width: 60px;
   height: 60px;
   border-radius: 100px;
+  flex-shrink: 0;
   color: var(--text-primary-color);
   border: 1px solid var(--border-inverse);
   background-color: inherit;

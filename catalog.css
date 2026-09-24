@@ -49,6 +49,18 @@
   transition: border-color 0.3s ease, background-color 0.4s ease, color 0.4s ease;
 }
 
+.catalog-menu-button-active {
+  background-color: var(--container-background-color);
+}
+
+.catalog-menu-button-active .hero-menu-button-text {
+  color: var(--text-inverse-color);
+}
+
+.catalog-menu-button-active .hero-menu-image {
+  background-color: var(--text-inverse-color);
+}
+
 .hero-menu-image {
   background-color: var(--border-primary);
   padding: 7px;
@@ -57,8 +69,9 @@
 
 .catalog-menu-button:hover .hero-menu-image {
   background-color: var(--page-background-color);
-
 }
+
+
 
 .hero-menu-button-text {
   font-size: 16px;
@@ -75,6 +88,8 @@
 .catalog-menu-button:hover .hero-menu-button-text {
   color: var(--text-inverse-color)
 }
+
+
 
 .card-section {
   display: flex;
@@ -97,6 +112,8 @@
 .button-show-more {
   display: none;
 }
+
+
 
 .image-frames {
   overflow: hidden;
@@ -152,6 +169,8 @@
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
+
+
   .button-show-more:hover {
     background-color: var(--page-background-color);
   }
@@ -159,6 +178,10 @@
   .button-show-more:focus-visible {
     background-color: var(--container-background-color);
     color: var(--text-inverse-color)
+  }
+
+  .button-show-hidden {
+    display: none;
   }
 
   .card-section-item-container:nth-child(n + 5) {
