@@ -10,6 +10,7 @@
   --border-inverse: #665F55;
   --text-inverse-color: #E1D4C9;
   --container-background-color: #665F55;
+  --background-modal-color: #E1D4C9;
 }
 
 [data-theme='dark'] {
@@ -22,6 +23,7 @@
   --text-inverse-color: #E1D4C9;
   --container-background-color: #403F3D;
   --overlay-color: #292826CC;
+  --background-modal-color: #403F3D;
 }
 
 *,

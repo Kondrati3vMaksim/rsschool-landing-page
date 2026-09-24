@@ -25,14 +25,34 @@ themeControl.addEventListener("change", () => {
 // elements
 const catalogMenuButton = document.querySelectorAll(".catalog-menu-button");
 const buttonShowMore = document.querySelector(".button-show-more");
+const card = document.querySelector(".card-section-grid");
+
+//media
+const media = window.matchMedia("(max-width: 768px)");
+
+//modal
+const modalOverlay = document.querySelector(".modal-overlay");
+const modalButton = document.querySelector(".modal-button");
+const modalTitle = document.querySelector(".modal-title");
+const modalDescription = document.querySelector(".modal-description");
+const modalPrice = document.querySelector(".modal-price");
+const modalImage = document.querySelector(".modal-image");
+const modalSizeChoice = document.querySelector(".modal-size-choice");
+const modalAdditivesChoice = document.querySelector(".modal-additives-choice");
+
+// Selected State
+let currentItem = [];
+let selectedItem = null;
 
 //Event Listener
 catalogMenuButton.forEach((button) =>
   button.addEventListener("click", (e) => {
+    card.classList.remove("more");
     const dataCategory = button.dataset.type;
     const selectedCategory = data.filter(
       (item) => item.category === dataCategory,
     );
+    currentItem = selectedCategory;
     if (selectedCategory.length <= 4) {
       buttonShowMore.classList.add("button-show-hidden");
     } else {
@@ -46,11 +66,23 @@ catalogMenuButton.forEach((button) =>
   }),
 );
 
+// function
 async function takeInfo() {
   const response = await fetch("./products.json");
   data = await response.json();
   const coffee = data.filter((coffee) => coffee.category === "coffee");
+  currentItem = coffee;
   renderCard(coffee);
+}
+
+// functions are related with modal
+function blockOverflow() {
+  html.classList.add("page-locked-overflow");
+}
+
+function closeModal() {
+  modalOverlay.classList.add("overlay-hidden");
+  html.classList.remove("page-locked-overflow");
 }
 
 //render
@@ -63,7 +95,6 @@ function renderCard(user) {
 
 // state
 function createCard(product, index) {
-  const card = document.querySelector(".card-section-grid");
   const createItem = document.createElement("div");
   const createTitle = document.createElement("h2");
   const createParagraph = document.createElement("p");
@@ -95,8 +126,68 @@ function createCard(product, index) {
   createCardSectionContaier.append(createItem);
 
   card.append(createCardSectionContaier);
+  createCardSectionContaier.addEventListener("click", () => {
+    selectedItem = product;
+    modalImage.src = `./image/${category}-${index}.jpg`;
+    modalTitle.textContent = product.name;
+    modalDescription.textContent = product.description;
+    modalPrice.textContent = `$${product.price}`;
+    modalOverlay.classList.remove("overlay-hidden");
+    const sizes = product.sizes;
+    const arrayOfSizes = Object.entries(sizes);
+    arrayOfSizes.forEach(([key, value]) => {
+      const modalSizeButton = document.createElement("button");
+      const modalSizeSpan = document.createElement("span");
+      const addPriceButton = document.createElement("button");
+      const modalAdditiveButton = document.createElement("button");
+      modalSizeButton.textContent = key;
+      modalSizeSpan.textContent = value.size;
+      modalSizeButton.append(modalSizeSpan);
+      modalSizeChoice.append(modalSizeButton);
+
+      addPriceButton.dataset.addPrice = value.addPrice;
+      modalAdditivesChoice.append(modalAdditiveButton);
+      console.log(key);
+      console.log(value);
+    });
+    blockOverflow();
+  });
 }
 
 if (catalogPage) {
   takeInfo();
+
+  //Event Listener
+  buttonShowMore.addEventListener("click", () => {
+    card.classList.add("more");
+    buttonShowMore.classList.add("button-show-hidden");
+  });
+
+  modalButton.addEventListener("click", closeModal);
+  modalOverlay.addEventListener("click", (e) => {
+    if (e.target === e.currentTarget) {
+      modalSizeChoice.replaceChildren();
+      closeModal();
+    }
+  });
+  html.addEventListener("keydown", (e) => {
+    if (
+      !modalOverlay.classList.contains("overlay-hidden") &&
+      e.key === "Escape"
+    ) {
+      closeModal();
+      modalSizeChoice.replaceChildren();
+    }
+  });
+
+  media.addEventListener("change", (e) => {
+    if (e.matches) {
+      card.classList.remove("more");
+      buttonShowMore.classList.remove("button-show-hidden");
+    }
+    if (currentItem.length <= 4) {
+      card.classList.remove("more");
+      buttonShowMore.classList.add("button-show-hidden");
+    }
+  });
 }
