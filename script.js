@@ -26,6 +26,11 @@ themeControl.addEventListener("change", () => {
 const catalogMenuButton = document.querySelectorAll(".catalog-menu-button");
 const buttonShowMore = document.querySelector(".button-show-more");
 const card = document.querySelector(".card-section-grid");
+const modalTextTotal = document.querySelector(".modal-price-text-total");
+const divSize = document.createElement("div");
+divSize.classList.add("modal-size-button-container");
+const divAdditives = document.createElement("div");
+divAdditives.classList.add("modal-additives-container");
 
 //media
 const media = window.matchMedia("(max-width: 768px)");
@@ -33,6 +38,7 @@ const media = window.matchMedia("(max-width: 768px)");
 //modal
 const modalOverlay = document.querySelector(".modal-overlay");
 const modalButton = document.querySelector(".modal-button");
+const modalButtonClose = document.querySelector(".modal-button-close");
 const modalTitle = document.querySelector(".modal-title");
 const modalDescription = document.querySelector(".modal-description");
 const modalPrice = document.querySelector(".modal-price");
@@ -43,6 +49,8 @@ const modalAdditivesChoice = document.querySelector(".modal-additives-choice");
 // Selected State
 let currentItem = [];
 let selectedItem = null;
+let selectedSizeAddPrice = 0;
+let totalAdditivesPrice = 0;
 
 //Event Listener
 catalogMenuButton.forEach((button) =>
@@ -126,29 +134,121 @@ function createCard(product, index) {
   createCardSectionContaier.append(createItem);
 
   card.append(createCardSectionContaier);
+
+  //function
+  function updateTotal() {
+    const totalPrice = (
+      Number(product.price) +
+      selectedSizeAddPrice +
+      totalAdditivesPrice
+    ).toFixed(2);
+    modalPrice.textContent = `$${totalPrice}`;
+  }
+
+  // get state product
   createCardSectionContaier.addEventListener("click", () => {
     selectedItem = product;
+
+    //create element for modal
+    const spanSizeModal = document.createElement("span");
+    const spanAdditives = document.createElement("span");
+
+    //render modal
     modalImage.src = `./image/${category}-${index}.jpg`;
     modalTitle.textContent = product.name;
     modalDescription.textContent = product.description;
     modalPrice.textContent = `$${product.price}`;
     modalOverlay.classList.remove("overlay-hidden");
+    modalTextTotal.textContent = "Total:";
     const sizes = product.sizes;
+
+    //clear modal choice
+    modalSizeChoice.replaceChildren();
+    modalAdditivesChoice.replaceChildren();
+    divSize.replaceChildren();
+    divAdditives.replaceChildren();
+
+    //text added
+    spanSizeModal.textContent = "Size";
+    modalSizeChoice.append(spanSizeModal);
+    spanAdditives.textContent = "Additives";
+    modalAdditivesChoice.append(spanAdditives);
+
+    //get size and render modal price
     const arrayOfSizes = Object.entries(sizes);
     arrayOfSizes.forEach(([key, value]) => {
       const modalSizeButton = document.createElement("button");
+      modalSizeButton.classList.add("modal-button");
       const modalSizeSpan = document.createElement("span");
-      const addPriceButton = document.createElement("button");
-      const modalAdditiveButton = document.createElement("button");
-      modalSizeButton.textContent = key;
-      modalSizeSpan.textContent = value.size;
-      modalSizeButton.append(modalSizeSpan);
-      modalSizeChoice.append(modalSizeButton);
 
-      addPriceButton.dataset.addPrice = value.addPrice;
-      modalAdditivesChoice.append(modalAdditiveButton);
-      console.log(key);
-      console.log(value);
+      //Size
+      const sizeForButton = document.createElement("span");
+      sizeForButton.textContent = key.toUpperCase();
+      modalSizeSpan.textContent = value.size;
+      modalSizeSpan.classList.add("name-choices");
+      sizeForButton.classList.add("char-of-size");
+
+      modalSizeButton.append(sizeForButton);
+      modalSizeButton.append(modalSizeSpan);
+      divSize.append(modalSizeButton);
+      modalSizeChoice.append(divSize);
+
+      //add cost
+      modalSizeButton.dataset.addPrice = value["add-price"];
+
+      if (key === "s") {
+        modalSizeButton.classList.add("modal-size-button-active");
+        selectedSizeAddPrice = Number(modalSizeButton.dataset.addPrice);
+      }
+
+      // get totalPrice and render
+      modalSizeButton.addEventListener("click", () => {
+        const buttonsContainer = modalSizeChoice.querySelectorAll("button");
+        buttonsContainer.forEach((button) => {
+          button.classList.remove("modal-size-button-active");
+        });
+        modalSizeButton.classList.add("modal-size-button-active");
+        selectedSizeAddPrice = Number(modalSizeButton.dataset.addPrice);
+        updateTotal();
+      });
+    });
+
+    //set for original index
+    const selectedAdditives = new Set();
+    totalAdditivesPrice = 0;
+
+    //get Additives and render
+    product.additives.forEach((items, index) => {
+      const modalAdditiveButton = document.createElement("button");
+      modalAdditiveButton.classList.add("modal-button");
+      const modalAdditiveNumber = document.createElement("span");
+      const modalAdditiveName = document.createElement("span");
+
+      modalAdditiveNumber.textContent = index + 1;
+      modalAdditiveName.textContent = items.name;
+      modalAdditiveName.classList.add("name-choices");
+      // give price to button
+      modalAdditiveButton.dataset.addPrice = items["add-price"];
+
+      modalAdditivesChoice.append(divAdditives);
+      modalAdditiveNumber.classList.add("char-of-size");
+      modalAdditiveButton.append(modalAdditiveNumber);
+      modalAdditiveButton.append(modalAdditiveName);
+      divAdditives.append(modalAdditiveButton);
+      modalAdditivesChoice.append(divAdditives);
+      modalAdditiveButton.addEventListener("click", () => {
+        modalAdditiveButton.classList.toggle("modal-additives-button-active");
+        totalAdditivesPrice = 0;
+        if (selectedAdditives.has(index)) {
+          selectedAdditives.delete(index);
+        } else {
+          selectedAdditives.add(index);
+        }
+        selectedAdditives.forEach((id) => {
+          totalAdditivesPrice += Number(product.additives[id]["add-price"]);
+        });
+        updateTotal();
+      });
     });
     blockOverflow();
   });
@@ -163,10 +263,9 @@ if (catalogPage) {
     buttonShowMore.classList.add("button-show-hidden");
   });
 
-  modalButton.addEventListener("click", closeModal);
+  modalButtonClose.addEventListener("click", closeModal);
   modalOverlay.addEventListener("click", (e) => {
     if (e.target === e.currentTarget) {
-      modalSizeChoice.replaceChildren();
       closeModal();
     }
   });
@@ -176,7 +275,6 @@ if (catalogPage) {
       e.key === "Escape"
     ) {
       closeModal();
-      modalSizeChoice.replaceChildren();
     }
   });
 

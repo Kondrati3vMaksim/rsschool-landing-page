@@ -11,6 +11,9 @@
   --text-inverse-color: #E1D4C9;
   --container-background-color: #665F55;
   --background-modal-color: #E1D4C9;
+  --background-modal-button: #665F55;
+  --modal-border-size: #C1B6AD;
+  --modal-text-primary: #E1D4C9;
 }
 
 [data-theme='dark'] {
@@ -24,6 +27,9 @@
   --container-background-color: #403F3D;
   --overlay-color: #292826CC;
   --background-modal-color: #403F3D;
+  --background-modal-button: #292826;
+  --modal-border-size: #665F55;
+  --modal-text-primary: #403F3D;
 }
 
 *,
