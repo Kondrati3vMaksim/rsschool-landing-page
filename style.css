@@ -731,17 +731,7 @@ main {
   }
 
   .header-navigation {
-    display: none;
-
-  }
-
-  .header {
-    position: relative;
-    justify-content: space-between;
-  }
-
-  .header.burger-menu-active .header-navigation {
-    display: flex;
+    pointer-events: none;
     justify-content: center;
     align-items: start;
     background-color: var(--page-background-color);
@@ -751,6 +741,22 @@ main {
     width: 100%;
     height: calc(100vh - 100px);
     left: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in;
+  }
+
+  .blocked-overflow {
+    overflow: hidden;
+  }
+
+  .header {
+    position: relative;
+    justify-content: space-between;
+  }
+
+  .header.burger-menu-active .header-navigation {
+    pointer-events: auto;
+    transform: translateX(0);
   }
 
   .header-menu {

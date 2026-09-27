@@ -2,7 +2,6 @@ const themeControl = document.querySelector("#theme-change");
 const html = document.documentElement;
 const themeValue = localStorage.getItem("theme");
 const catalogPage = document.querySelector(".catalog-page");
-
 let data = [];
 
 if (themeValue === "dark") {
@@ -33,7 +32,8 @@ const divAdditives = document.createElement("div");
 divAdditives.classList.add("modal-additives-container");
 const burgerMenu = document.querySelector(".burger-menu");
 const header = document.querySelector(".header");
-
+const bodyOverflow = document.querySelector(".blocked-overflow");
+const headerNavigation = document.querySelector(".header-navigation");
 //media
 const media = window.matchMedia("(max-width: 768px)");
 
@@ -77,7 +77,33 @@ catalogMenuButton.forEach((button) =>
 );
 
 burgerMenu.addEventListener("click", () => {
-  header.classList.toggle("burger-menu-active");
+  const toggleMenuActive = header.classList.toggle("burger-menu-active");
+  bodyOverflow.classList.toggle("blocked-overflow", toggleMenuActive);
+});
+
+html.addEventListener("keydown", (e) => {
+  if (
+    !bodyOverflow.classList.contains("blocked-overflow") &&
+    e.key === "Escape"
+  ) {
+    bodyOverflow.classList.remove("blocked-overflow");
+    header.classList.remove("burger-menu-active");
+  }
+});
+
+headerNavigation.addEventListener("click", (e) => {
+  const link = e.target.closest("a");
+  if (!link) {
+    return;
+  }
+  bodyOverflow.classList.remove("blocked-overflow");
+});
+
+media.addEventListener("change", (e) => {
+  if (e.matches === false) {
+    bodyOverflow.classList.remove("blocked-overflow");
+    header.classList.remove("burger-menu-active");
+  }
 });
 
 // function
