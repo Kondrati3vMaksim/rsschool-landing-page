@@ -154,6 +154,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .modal-title {
@@ -171,8 +173,8 @@
 .modal {
   background-color: var(--background-modal-color);
   max-width: 800px;
-  min-height: 504px;
   padding: 16px;
+  margin-block: auto;
   border-radius: 40px;
 }
 
@@ -264,8 +266,6 @@
   gap: 8px;
   flex-wrap: wrap;
 }
-
-
 
 .modal-size-button-active {
   background-color: var(--background-modal-button);
@@ -387,18 +387,20 @@
   .card-section-grid.more .card-section-item-container {
     display: flex;
   }
-
-
 }
 
 @media (max-width: 600px) {
+  .modal-image-container {
+    display: none;
+  }
+}
+
+@media (max-width: 550px) {
   .card-section-grid {
     grid-template-columns: 1fr;
   }
 
-  .modal-image-container {
-    display: none;
-  }
+
 
   .modal-overlay {
     padding-inline: 19px;

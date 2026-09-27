@@ -31,6 +31,8 @@ const divSize = document.createElement("div");
 divSize.classList.add("modal-size-button-container");
 const divAdditives = document.createElement("div");
 divAdditives.classList.add("modal-additives-container");
+const burgerMenu = document.querySelector(".burger-menu");
+const header = document.querySelector(".header");
 
 //media
 const media = window.matchMedia("(max-width: 768px)");
@@ -73,6 +75,10 @@ catalogMenuButton.forEach((button) =>
     button.classList.add("catalog-menu-button-active");
   }),
 );
+
+burgerMenu.addEventListener("click", () => {
+  header.classList.toggle("burger-menu-active");
+});
 
 // function
 async function takeInfo() {
