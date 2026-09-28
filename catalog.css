@@ -19,6 +19,7 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+  margin-top: 20px;
 }
 
 .hero-catalog-title {
@@ -117,6 +118,9 @@
   display: none;
 }
 
+.show-more-icon {
+  color: var(--text-primary-color);
+}
 
 
 .image-frames {

@@ -32,7 +32,7 @@ const divAdditives = document.createElement("div");
 divAdditives.classList.add("modal-additives-container");
 const burgerMenu = document.querySelector(".burger-menu");
 const header = document.querySelector(".header");
-const bodyOverflow = document.querySelector(".blocked-overflow");
+const bodyOverflow = document.querySelector("html");
 const headerNavigation = document.querySelector(".header-navigation");
 //media
 const media = window.matchMedia("(max-width: 768px)");
@@ -83,11 +83,10 @@ burgerMenu.addEventListener("click", () => {
 
 html.addEventListener("keydown", (e) => {
   if (
-    !bodyOverflow.classList.contains("blocked-overflow") &&
+    bodyOverflow.classList.contains("blocked-overflow") &&
     e.key === "Escape"
   ) {
-    bodyOverflow.classList.remove("blocked-overflow");
-    header.classList.remove("burger-menu-active");
+    closedBurgerMenu();
   }
 });
 
@@ -96,13 +95,12 @@ headerNavigation.addEventListener("click", (e) => {
   if (!link) {
     return;
   }
-  bodyOverflow.classList.remove("blocked-overflow");
+  closedBurgerMenu();
 });
 
 media.addEventListener("change", (e) => {
   if (e.matches === false) {
-    bodyOverflow.classList.remove("blocked-overflow");
-    header.classList.remove("burger-menu-active");
+    closedBurgerMenu();
   }
 });
 
@@ -123,6 +121,11 @@ function blockOverflow() {
 function closeModal() {
   modalOverlay.classList.add("overlay-hidden");
   html.classList.remove("page-locked-overflow");
+}
+
+function closedBurgerMenu() {
+  header.classList.remove("burger-menu-active");
+  bodyOverflow.classList.remove("blocked-overflow");
 }
 
 //render

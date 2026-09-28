@@ -42,6 +42,7 @@
 
 html {
   scroll-behavior: smooth;
+
 }
 
 body {
@@ -52,6 +53,7 @@ body {
   padding: 20px 40px;
   color: var(--text-primary-color);
   min-height: 100vh;
+
 }
 
 a {
@@ -84,11 +86,10 @@ li {
   font-size: 16px;
   font-weight: 600;
   line-height: 150%;
-
+  overflow-x: clip;
 }
 
 .header-navigation {
-  display: flex;
   flex-grow: 1;
 }
 
@@ -259,6 +260,7 @@ main {
   position: absolute;
   inset: 0;
   background-color: var(--overlay-color);
+  border-radius: 40px;
 }
 
 .hero-video {
@@ -702,6 +704,10 @@ main {
   width: 100%;
 }
 
+.link-menu-item-for-burger-menu {
+  display: none;
+}
+
 @media (max-width: 900px) {
   .mobile-app {
     flex-direction: column;
@@ -731,9 +737,12 @@ main {
   }
 
   .header-navigation {
+    flex-direction: column;
+    display: flex;
     pointer-events: none;
     justify-content: center;
-    align-items: start;
+    align-items: center;
+    gap: 100px;
     background-color: var(--page-background-color);
     position: absolute;
     top: calc(100% + 20px);
@@ -762,11 +771,15 @@ main {
   .header-menu {
     flex-direction: column;
     align-items: center;
-    padding-top: 122px;
+    padding-top: 50px;
     font-size: 32px;
     line-height: 125%;
     font-weight: 600;
     gap: 60px;
+  }
+
+  .link-menu-item-for-burger-menu {
+    display: flex;
   }
 
   .menu-and-icon {
@@ -796,15 +809,6 @@ main {
     transform: translateY(-4px) rotate(-45deg);
   }
 
-  .header.burger-menu-active .link-to-menu .menu-and-icon {
-    display: flex;
-    position: absolute;
-    top: 642px;
-    z-index: 2;
-    left: 50%;
-    transform: translateX(-50%);
-
-  }
 
   .theme-items {
     width: 44px;
@@ -847,16 +851,13 @@ main {
     padding: 20px 16px;
   }
 
-  .header-navigation {
-    align-items: start;
-  }
-
   .header-menu {
     padding-top: 60px;
   }
 
-  .header.burger-menu-active .link-to-menu .menu-and-icon {
-    top: 580px;
+  .hero-title-container {
+    left: 16px;
+    top: 60px;
   }
 
   .hero-title {
@@ -928,16 +929,7 @@ main {
     gap: 8px;
   }
 
-
-
   .link-to-menu {
     gap: 12px;
-  }
-}
-
-@media (max-width: 460px) {
-  .hero-title-container {
-    left: 16px;
-    top: 60px;
   }
 }
