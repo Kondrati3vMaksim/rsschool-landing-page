@@ -14,7 +14,7 @@
   <title>Coffee House</title>
 </head>
 
-<body>
+<body class="main-page">
   <header class="header">
     <a href="index.html" aria-label="Go to homepage">
       <svg class="logo" width="100" height="60" viewBox="0 0 690 414" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -79,7 +79,7 @@
           fill="currentColor" />
       </svg>
     </a>
-    <nav class="header-navigation">
+    <nav class="header-navigation burger-active">
       <ul class="header-menu">
         <li class="header-menu-item"><a href="#favorite-coffee">Favorite coffee</a></li>
         <li class="header-menu-item"><a href="#about">About</a></li>
@@ -200,31 +200,35 @@
           </svg>
         </button>
         <div class="favorite-card">
-          <div class="favorite-card-product favorite-card-product-current">
-            <img alt="" class="favorite-card-image" src="./image/coffee-slider-1.png">
-            <div class="favorite-card-text-container">
-              <h3 class="favorite-card-title">S’mores Frappuccino</h3>
-              <p class="favorite-card-description">This new drink takes an espresso and mixes it with brown sugar and
-                cinnamon before being topped with oat milk.</p>
-              <span class="favorite-card-price">$5.50</span>
+          <div class="courusel-contaier">
+            <div class="favorite-card-product favorite-card-product-current">
+              <img alt="" class="favorite-card-image" src="./image/coffee-slider-1.png">
+              <div class="favorite-card-text-container">
+                <h3 class="favorite-card-title">S’mores Frappuccino</h3>
+                <p class="favorite-card-description">This new drink takes an espresso and mixes it with brown sugar and
+                  cinnamon before being topped with oat milk.</p>
+                <span class="favorite-card-price">$5.50</span>
+              </div>
             </div>
-          </div>
-          <div class="favorite-card-product">
-            <img alt="" class="favorite-card-image" src="./image/coffee-slider-2.png">
-            <div class="favorite-card-text-container">
-              <h3 class="favorite-card-title">Caramel Macchiato</h3>
-              <p class="favorite-card-description">Fragrant and unique classic espresso with rich caramel-peanut syrup,
-                with cream under whipped thick foam.</p>
-              <span class="favorite-card-price">$5.00</span>
+            <div class="favorite-card-product">
+              <img alt="" class="favorite-card-image" src="./image/coffee-slider-2.png">
+              <div class="favorite-card-text-container">
+                <h3 class="favorite-card-title">Caramel Macchiato</h3>
+                <p class="favorite-card-description">Fragrant and unique classic espresso with rich caramel-peanut
+                  syrup,
+                  with cream under whipped thick foam.</p>
+                <span class="favorite-card-price">$5.00</span>
+              </div>
             </div>
-          </div>
-          <div class="favorite-card-product">
-            <img alt="" class="favorite-card-image" src="./image/coffee-slider-3.png">
-            <div class="favorite-card-text-container">
-              <h3 class="favorite-card-title">Ice coffee</h3>
-              <p class="favorite-card-description">A popular summer drink that tones and invigorates. Prepared from
-                coffee, milk and ice.</p>
-              <span class="favorite-card-price">$4.50</span>
+            <div class="favorite-card-product">
+
+              <img alt="" class="favorite-card-image" src="./image/coffee-slider-3.png">
+              <div class="favorite-card-text-container">
+                <h3 class="favorite-card-title">Ice coffee</h3>
+                <p class="favorite-card-description">A popular summer drink that tones and invigorates. Prepared from
+                  coffee, milk and ice.</p>
+                <span class="favorite-card-price">$4.50</span>
+              </div>
             </div>
           </div>
         </div>
@@ -234,6 +238,7 @@
               stroke-linejoin="round" />
           </svg>
         </button>
+
       </div>
       <div class="selected-card">
         <span class="selected-card-item selected-card-item-active"></span>

@@ -2,6 +2,7 @@ const themeControl = document.querySelector("#theme-change");
 const html = document.documentElement;
 const themeValue = localStorage.getItem("theme");
 const catalogPage = document.querySelector(".catalog-page");
+const mainPage = document.querySelector(".main-page");
 let data = [];
 
 if (themeValue === "dark") {
@@ -32,8 +33,12 @@ const divAdditives = document.createElement("div");
 divAdditives.classList.add("modal-additives-container");
 const burgerMenu = document.querySelector(".burger-menu");
 const header = document.querySelector(".header");
-const bodyOverflow = document.querySelector("html");
 const headerNavigation = document.querySelector(".header-navigation");
+const couruselContainer = document.querySelectorAll(".favorite-card-product");
+const nextSlide = document.querySelector(".right-button");
+const previousSlide = document.querySelector(".left-button");
+const selectedIndicator = document.querySelectorAll(".selected-card-item");
+const couruselSlide = document.querySelector(".courusel-contaier");
 //media
 const media = window.matchMedia("(max-width: 768px)");
 
@@ -55,6 +60,7 @@ let selectedSizeAddPrice = 0;
 let totalAdditivesPrice = 0;
 
 //Event Listener
+
 catalogMenuButton.forEach((button) =>
   button.addEventListener("click", (e) => {
     card.classList.remove("more");
@@ -77,16 +83,15 @@ catalogMenuButton.forEach((button) =>
 );
 
 burgerMenu.addEventListener("click", () => {
+  headerNavigation.classList.add("burger-active");
   const toggleMenuActive = header.classList.toggle("burger-menu-active");
-  bodyOverflow.classList.toggle("blocked-overflow", toggleMenuActive);
+
+  html.classList.toggle("blocked-overflow", toggleMenuActive);
 });
 
 html.addEventListener("keydown", (e) => {
-  if (
-    bodyOverflow.classList.contains("blocked-overflow") &&
-    e.key === "Escape"
-  ) {
-    closedBurgerMenu();
+  if (html.classList.contains("blocked-overflow") && e.key === "Escape") {
+    closeBurgerMenu();
   }
 });
 
@@ -95,14 +100,107 @@ headerNavigation.addEventListener("click", (e) => {
   if (!link) {
     return;
   }
-  closedBurgerMenu();
+  closeBurgerMenu();
 });
 
 media.addEventListener("change", (e) => {
   if (e.matches === false) {
-    closedBurgerMenu();
+    closeBurgerMenu();
+    headerNavigation.classList.remove("burger-active");
   }
 });
+
+//courusel
+
+if (mainPage) {
+  let currentIndex = 0;
+  let trackIndex = currentIndex + 1;
+  //clone card for courusel
+  const copyFirtCard = couruselContainer[0].cloneNode(true);
+  const copyLastCard =
+    couruselContainer[couruselContainer.length - 1].cloneNode(true);
+  couruselSlide.append(copyFirtCard);
+  couruselSlide.prepend(copyLastCard);
+  couruselSlide.style.transition = "none";
+  const offset = trackIndex * -100;
+  couruselSlide.style.transform = `translateX(${offset}%)`;
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      couruselSlide.style.transition = "transform 0.4s ease";
+    });
+  });
+
+  let isAnimation = false;
+  previousSlide.addEventListener("click", () => {
+    if (isAnimation) {
+      return;
+    }
+    isAnimation = true;
+    currentIndex -= 1;
+    trackIndex -= 1;
+    if (currentIndex < 0) {
+      currentIndex = couruselContainer.length - 1;
+    }
+    console.log(trackIndex);
+    renderCouruselCard();
+  });
+
+  nextSlide.addEventListener("click", () => {
+    if (isAnimation) {
+      return;
+    }
+    isAnimation = true;
+    currentIndex += 1;
+    trackIndex += 1;
+    if (currentIndex >= couruselContainer.length) {
+      currentIndex = 0;
+    }
+
+    renderCouruselCard();
+  });
+
+  couruselSlide.addEventListener("transitionend", () => {
+    if (trackIndex === 4) {
+      couruselSlide.style.transition = "none";
+      trackIndex = 1;
+      const offset = trackIndex * -100;
+      couruselSlide.style.transform = `translateX(${offset}%)`;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          couruselSlide.style.transition = "transform 0.4s ease";
+          isAnimation = false;
+        });
+      });
+      return;
+    }
+    if (trackIndex === 0) {
+      couruselSlide.style.transition = "none";
+      trackIndex = 3;
+      const offset = trackIndex * -100;
+      couruselSlide.style.transform = `translateX(${offset}%)`;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          couruselSlide.style.transition = "transform 0.4s ease";
+          isAnimation = false;
+        });
+      });
+      return;
+    }
+    isAnimation = false;
+  });
+
+  function renderCouruselCard() {
+    const offset = trackIndex * -100;
+    couruselSlide.style.transform = `translateX(${offset}%)`;
+    selectedIndicator.forEach((active, index) => {
+      if (index === currentIndex) {
+        active.classList.add("selected-card-item-active");
+      } else {
+        active.classList.remove("selected-card-item-active");
+      }
+    });
+  }
+}
 
 // function
 async function takeInfo() {
@@ -123,9 +221,9 @@ function closeModal() {
   html.classList.remove("page-locked-overflow");
 }
 
-function closedBurgerMenu() {
+function closeBurgerMenu() {
   header.classList.remove("burger-menu-active");
-  bodyOverflow.classList.remove("blocked-overflow");
+  html.classList.remove("blocked-overflow");
 }
 
 //render
