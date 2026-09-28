@@ -39,6 +39,7 @@ const nextSlide = document.querySelector(".right-button");
 const previousSlide = document.querySelector(".left-button");
 const selectedIndicator = document.querySelectorAll(".selected-card-item");
 const couruselSlide = document.querySelector(".courusel-contaier");
+const favoriteCard = document.querySelector(".favorite-card");
 //media
 const media = window.matchMedia("(max-width: 768px)");
 
@@ -113,6 +114,26 @@ media.addEventListener("change", (e) => {
 //courusel
 
 if (mainPage) {
+  //swipe
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const swipeThreshold = 50;
+
+  favoriteCard.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+  });
+  favoriteCard.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].clientX;
+    const result = touchStartX - touchEndX;
+    if (result > swipeThreshold) {
+      nextSlideFunction();
+    }
+
+    if (result < -swipeThreshold) {
+      goPrevious();
+    }
+  });
+
   let currentIndex = 0;
   let trackIndex = currentIndex + 1;
   //clone card for courusel
@@ -131,7 +152,7 @@ if (mainPage) {
   });
 
   let isAnimation = false;
-  previousSlide.addEventListener("click", () => {
+  function goPrevious() {
     if (isAnimation) {
       return;
     }
@@ -141,11 +162,11 @@ if (mainPage) {
     if (currentIndex < 0) {
       currentIndex = couruselContainer.length - 1;
     }
-    console.log(trackIndex);
     renderCouruselCard();
-  });
+  }
+  previousSlide.addEventListener("click", goPrevious);
 
-  nextSlide.addEventListener("click", () => {
+  function nextSlideFunction() {
     if (isAnimation) {
       return;
     }
@@ -157,7 +178,9 @@ if (mainPage) {
     }
 
     renderCouruselCard();
-  });
+  }
+
+  nextSlide.addEventListener("click", nextSlideFunction);
 
   couruselSlide.addEventListener("transitionend", () => {
     if (trackIndex === 4) {
