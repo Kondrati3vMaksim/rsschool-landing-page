@@ -10,6 +10,10 @@
   --border-inverse: #665F55;
   --text-inverse-color: #E1D4C9;
   --container-background-color: #665F55;
+  --background-modal-color: #E1D4C9;
+  --background-modal-button: #665F55;
+  --modal-border-size: #C1B6AD;
+  --modal-text-primary: #E1D4C9;
 }
 
 [data-theme='dark'] {
@@ -22,6 +26,10 @@
   --text-inverse-color: #E1D4C9;
   --container-background-color: #403F3D;
   --overlay-color: #292826CC;
+  --background-modal-color: #403F3D;
+  --background-modal-button: #292826;
+  --modal-border-size: #665F55;
+  --modal-text-primary: #403F3D;
 }
 
 *,
@@ -34,6 +42,7 @@
 
 html {
   scroll-behavior: smooth;
+
 }
 
 body {
@@ -44,6 +53,7 @@ body {
   padding: 20px 40px;
   color: var(--text-primary-color);
   min-height: 100vh;
+
 }
 
 a {
@@ -76,7 +86,7 @@ li {
   font-size: 16px;
   font-weight: 600;
   line-height: 150%;
-
+  overflow-x: clip;
 }
 
 .header-navigation {
@@ -250,6 +260,7 @@ main {
   position: absolute;
   inset: 0;
   background-color: var(--overlay-color);
+  border-radius: 40px;
 }
 
 .hero-video {
@@ -351,20 +362,28 @@ main {
 
 .favorite-card {
   display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
 
+.courusel-contaier {
+  display: flex;
+  transition: transform 0.4s ease;
 }
 
 .favorite-card-product {
-  display: none;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.favorite-card-product-current {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  flex-basis: 100%;
+  flex-shrink: 0;
+
 }
 
 .favorite-card-image {
+  width: 100%;
   align-self: center;
   max-width: 480px;
 }
@@ -404,6 +423,7 @@ main {
   width: 60px;
   height: 60px;
   border-radius: 100px;
+  flex-shrink: 0;
   color: var(--text-primary-color);
   border: 1px solid var(--border-inverse);
   background-color: inherit;
@@ -692,6 +712,10 @@ main {
   width: 100%;
 }
 
+.link-menu-item-for-burger-menu {
+  display: none;
+}
+
 @media (max-width: 900px) {
   .mobile-app {
     flex-direction: column;
@@ -720,15 +744,84 @@ main {
     display: flex;
   }
 
-  .header-menu {
-    display: none;
+  .header-navigation {
+    flex-direction: column;
+    display: flex;
+    pointer-events: none;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    background-color: var(--page-background-color);
+    position: absolute;
+    top: calc(100% + 20px);
+    z-index: 2;
+    width: 100%;
+    height: calc(100vh - 100px);
+    left: 0;
+    transform: translateX(100%);
+
   }
 
 
+
+  .blocked-overflow {
+    overflow: hidden;
+  }
+
+  .header {
+    position: relative;
+    justify-content: space-between;
+  }
+
+  .header.burger-menu-active .header-navigation {
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  .header-navigation.burger-active {
+    transition: transform 0.4s ease;
+  }
+
+  .header-menu {
+    flex-direction: column;
+    align-items: center;
+    font-size: 32px;
+    line-height: 125%;
+    font-weight: 600;
+    gap: 60px;
+  }
+
+  .link-menu-item-for-burger-menu {
+    display: flex;
+  }
 
   .menu-and-icon {
     display: none;
   }
+
+  .link-menu-item {
+    font-size: 32px;
+    line-height: 125%;
+    font-weight: 600;
+  }
+
+  .link-menu--icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .burger-menu-item {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .burger-menu-active .burger-menu-item-top {
+    transform: translateY(5px) rotate(45deg);
+  }
+
+  .burger-menu-active .burger-menu-item-bottom {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+
 
   .theme-items {
     width: 44px;
@@ -771,6 +864,13 @@ main {
     padding: 20px 16px;
   }
 
+
+
+  .hero-title-container {
+    left: 16px;
+    top: 60px;
+  }
+
   .hero-title {
     font-size: 42px;
     line-height: 115%;
@@ -780,10 +880,6 @@ main {
     height: 552px;
   }
 
-  .hero-title-container {
-    left: 16px;
-    top: 60px;
-  }
 
   .hero-menu-link--icon {
     opacity: 1;
@@ -794,7 +890,6 @@ main {
   }
 
   .favorite-card-image {
-    width: 100%;
     max-width: 350px;
   }
 
@@ -843,8 +938,6 @@ main {
   .footer-contacts-info-item {
     gap: 8px;
   }
-
-
 
   .link-to-menu {
     gap: 12px;
