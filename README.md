@@ -2,7 +2,7 @@
 
 Учебный проект RS School: адаптивный сайт кофейни с главной страницей, каталогом и выбором параметров продукта.
 
-[Исходный код](https://github.com/Kondrati3vMaksim/rsschool-landing-page/tree/landing-page-part-2)
+[Демо](https://kondrati3vmaksim.github.io/rsschool-landing-page/) · [Исходный код](https://github.com/Kondrati3vMaksim/rsschool-landing-page/tree/landing-page-part-2)
 
 **Автор реализации:** Максим Кондратьев. Использован учебный макет. Актуальный код находится в ветке `landing-page-part-2`; в `main` размещено описание.
 
